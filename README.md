@@ -14,5 +14,3 @@
 ## Site
 
 --
-
-![preview](/preview.png)
