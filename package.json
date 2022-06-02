@@ -10,9 +10,18 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.25",
+        "axios": "^0.27.2",
         "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "lodash": "^4.17.21",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "5.0.0"
+    },
+    "dependencies": {
+        "autoprefixer": "10.4.5",
+        "bootstrap": "^5.1.3",
+        "cross-env": "^7.0.3",
+        "jquery": "^3.6.0",
+        "sass": "^1.52.1",
+        "sass-loader": "^13.0.0"
     }
 }
