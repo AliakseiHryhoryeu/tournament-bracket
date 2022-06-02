@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="{{asset('css/index.css')}}" />
 		<link
 			rel="shortcut icon"
 			href="img/favicon-black.png"
@@ -36,7 +36,8 @@
 						<div class="forms">
 							<form action="#" method="get" enctype="multipart/form-data">
 								<div class="forms__title">Участники:</div>
-								<input type="text" name="players" placeholder="Имя участника" />
+                                <input type="text" name="playersName" placeholder="Имя участника" />
+                                <input type="text" name="playersCity" placeholder="Город участника" />
 								<button type="submit">Добавить</button>
 							</form>
 
@@ -101,7 +102,7 @@
 				</div>
 			</section>
 		</main>
-		<script src="js/translateScreen.js"></script>
-		<script src="js/main.min.js"></script>
 	</body>
+    <script type="text/javascript" src="{{asset('js/translateScreen.js')}}"></script>
+
 </html>
