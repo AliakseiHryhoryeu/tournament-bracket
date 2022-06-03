@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', function () {
-    return view('welcome');
-});
+Route::get('/index', 'MainController@index');
 
-Route::get('/', function () {
-    return view('tournament');
-});
+Route::get('/', 'MainController@home');
