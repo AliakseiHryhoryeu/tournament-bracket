@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tournaments', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId();
             $table->string('name');
-            $table->date('start_date');
+            $table->date('start_date')->default(date("Y-m-d H:i:s"));
         });
     }
 

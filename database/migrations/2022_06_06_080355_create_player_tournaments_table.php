@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('players', function (Blueprint $table) {
-            $table->foreignId();
-            $table->string('name');
-            $table->string('city');
+        Schema::create('player_tournaments', function (Blueprint $table) {
+            $table->foreignId('player_id')->constrained();
+            $table->string('tournament_id');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('players');
+        Schema::dropIfExists('player_tournaments');
     }
 };
