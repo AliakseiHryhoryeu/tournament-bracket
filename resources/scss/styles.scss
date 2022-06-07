@@ -3,7 +3,9 @@
 @import './fonts/fonts';
 
 @import './components/header';
-@import './components/content.scss';
+@import './components/content';
+@import './components/players';
+@import './components/tournaments';
 
 body {
 	font-family: 'Roboto', -apple-system, sans-serif;
