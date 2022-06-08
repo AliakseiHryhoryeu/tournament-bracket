@@ -6,27 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
-            $table->foreignId();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('city');
         });
+
+        Schema::create('tournaments', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->date('start_date')->default(date("Y-m-d H:i:s"));
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('players');
+        Schema::dropIfExists('tournaments');
     }
 };

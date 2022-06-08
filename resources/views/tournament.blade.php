@@ -13,6 +13,7 @@
                 <div class="goBack__title">Назад</div>
             </div>
             <div class="tournament">
+                <div class="tournament__title">Турнир 1</div>
                 <div class="tournament__title">Расписание турнира</div>
                 <div class="tournament__list">
                     <div class="tournament__date">01.01.2022</div>
