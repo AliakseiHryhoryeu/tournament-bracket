@@ -4,8 +4,19 @@
 			<section class="content" id="screen1">
 				<div class="wrapper920">
 					<div class="settings">
+                        @if($errors->any())
+                            <div class="alert">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        @endif
+
 						<div class="forms">
-							<form action="/tournament/player" method="get" enctype="multipart/form-data">
+							<form action="{{route('addPlayer')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 								<div class="forms__title">Участники:</div>
                                 <input type="text" name="playersName" placeholder="Имя участника" />
@@ -13,13 +24,13 @@
 								<button type="submit">Добавить</button>
 							</form>
 
-							<form action="/tournament/date" method="get" enctype="multipart/form-data">
+							<form action="{{route('addDate')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="forms__title">Дата начала турнира:</div>
 								<div class="forms__subtitle">
 									если не указана, то начало турнира это текущая дата
 								</div>
-								<input type="date" name="date" placeholder="20.01.2022" />
+								<input type="date" name="date"  placeholder="2022.01.20" />
 								<button type="submit">Назначить</button>
 							</form>
 						</div>

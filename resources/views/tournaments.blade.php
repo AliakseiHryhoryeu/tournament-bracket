@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <section class="tournaments">
+    <section class="tournaments-page">
         <div class="wrapper920">
-            <div class="tournaments__title">
+            <div class="tournaments-page__title">
                 Tournaments
             </div>
-            <div class="tournaments__list">
-                <div class="tournaments__data">
+            <div class="tournaments-page__list">
+                <div class="tournaments-page__data">
                     <div class="tournaments__id">1.</div>
                     <div class="tournaments__name">Туринир 1</div>
                     <div class="tournaments__city"> 07.06.2022</div>
