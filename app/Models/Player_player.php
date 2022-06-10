@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
-class Player extends Model
+class Player_player extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     public $timestamps = false;
 
     protected $fillable = [
-        'name',
-        'city',
+        'player1_id',
+        'player2_id',
+        'tournament_id',
     ];
 
     protected $hidden = [];

@@ -18,11 +18,13 @@
     &__list{
         display: flex;
         flex-direction: row;
+        padding: 4px 0px;
     }
 &__data{
     display: flex;
     flex-direction: row;
     margin-right: auto;
+    cursor:pointer;
     :nth-child(n){
         padding: 0 5px;
     }

@@ -11,6 +11,8 @@ class Tournament extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'title',
         'start_date',

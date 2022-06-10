@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{asset('css/index.css')}}" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{{asset('css/index.css')}}"/>
     <link
         rel="shortcut icon"
-        href="img/favicon-black.png"
+        href="{{asset('img/favicon-black.png')}}"
         type="image/x-icon"
     />
     <title>Tournament</title>
@@ -21,7 +21,7 @@
                 <a href="{{route('home')}}" class="header__logo-link">
                     <img
                         alt="#"
-                        src="./img/favicon-white.png"
+                        src="{{asset('./img/favicon-white.png')}}"
                         height="20"
                         width="20"
                     />
@@ -34,7 +34,16 @@
         </div>
     </header>
 
-    @yield('content')
+
+    <section class="content" id="screen1">
+        <div class="wrapper920">
+            @include('messages')
+
+            @yield('content')
+
+        </div>
+    </section>
+
 </main>
 </body>
 @yield('scripts')

@@ -2,32 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\TournamentController;
+use \App\Http\Controllers\PlayersController;
 
 /* HOME page */
 
-Route::get('/', function (){
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'getAllPlayers'])->name('home');
 
-Route::post('/home/addPlayer', [HomeController::class, 'addPlayers'])->name('addPlayer');
+/* PLAYERS pages */
 
-Route::post('/home/addDate', [HomeController::class, 'dateValid'])->name('addDate');
+Route::get('/players', [PlayersController::class, 'getAllPlayers'])->name('players');
 
-/* PLAYERS page */
+Route::post('/players/addPlayer', [PlayersController::class, 'addPlayer'])->name('addPlayer');
 
-Route::get('/players', function (){
-    return view('players');
-})->name('players');
+Route::get('/players/{id}', [PlayersController::class, 'getPlayer'])->name('playerInfo');
 
+Route::post('/players/{id}', [PlayersController::class, 'editPlayer'])->name('editPlayer');
 
-/* TOURNAMENTS page */
-Route::get('/tournaments', function (){
-    return view('tournaments');
-})->name('tournaments');
+/* TOURNAMENTS pages */
 
+Route::get('/tournaments', [TournamentController::class, 'getAllTournaments'])->name('tournaments');
 
-/* TOURNAMENT page */
+Route::post('/tournaments/addTournament', [TournamentController::class, 'addTournament'])->name('addTournament');
 
-Route::get('/tournaments/1', function (){
-    return view('tournament');
-})->name('tournament');
+Route::get('/tournaments/{id}', [TournamentController::class, 'getTournament'])->name('tournamentInfo');
+
+Route::post('/tournaments/{id}', [TournamentController::class, 'editTournament'])->name('editTournament');

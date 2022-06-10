@@ -1,27 +1,21 @@
 @extends('layout')
 
 @section('content')
-    <section class="tournaments-page">
-        <div class="wrapper920">
-            <div class="tournaments-page__title">
-                Tournaments
-            </div>
-            <div class="tournaments-page__list">
-                <div class="tournaments-page__data">
-                    <div class="tournaments__id">1.</div>
-                    <div class="tournaments__name">Туринир 1</div>
-                    <div class="tournaments__city"> 07.06.2022</div>
-                </div>
-                <div class="tournaments__delete">
-                    <img alt="#" src="./img/cross-01.svg" height="20" width="20" />
-                </div>
-            </div>
+    <div class="tournaments-page__title">
+        Tournaments
+    </div>
+    @foreach($data as $item)
+        <div class="tournaments-page__list">
+        <div class="tournaments-page__data сup"
+             onclick="location.href='{{ route('tournamentInfo',($item->id)) }}'"
+        >
+            <div class="tournaments__id">{{$item->id}}</div>
+            <div class="tournaments__name">{{$item->title}}</div>
+            <div class="tournaments__city"> {{$item->start_date}}</div>
         </div>
-    </section>
+        <div class="tournaments__delete">
+            <img alt="#" src="{{asset('./img/cross-01.svg')}}" height="20" width="20"/>
+        </div>
+    </div>
+    @endforeach
 @endsection
-
-@section('scripts')
-
-@endsection
-
-
