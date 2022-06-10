@@ -1,6 +1,8 @@
 .main {
-	display: flex;
+    display: flex;
 	flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .content {
@@ -10,10 +12,8 @@
 	align-items: center;
 	justify-content: start;
 	background-color: #4b4949;
-	position: relative;
-	height: 100vh;
-	overflow: hidden;
-	margin: 0;
+    flex-grow: 4;
+    margin: 0;
 	text-align: center;
 	transition: 0.6s ease-out;
 }
@@ -31,9 +31,13 @@
 		text-align: center;
 	}
 	&__player {
-		align-self: flex-end;
-		padding: 3px 0;
-		img {
+		display: flex;
+        flex-direction: row;
+		padding: 3px 10px;
+        &-data{
+            margin-right: auto;
+        }
+		&-delete {
 			cursor: pointer;
 		}
 	}
@@ -87,9 +91,8 @@
 		padding-left: 5px;
 	}
 }
-* {
-	overflow: hidden;
-}
+
+
 .tournament {
 	&__title {
 		font-size: 30px;
@@ -102,4 +105,8 @@
 	&__players {
 		padding: 3px 0;
 	}
+}
+
+.cup{
+    cursor: pointer;
 }

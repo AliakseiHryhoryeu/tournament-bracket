@@ -2,24 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function dateValid(Request $request)
+    public function getAllPlayers()
     {
-        $date = $request->input('date');
-        if($date===null){
-            $date=date('Y-m-d');
-        }
-        return $date ;
-        }
-
-    public function addPlayers(Request $request)
-    {
-$validation =$request->validate([
-    'playersName'=>'required',
-    'playersCity'=>'required',
-]);
+        return view('home',['data'=>Player::all()]);
     }
+
 }

@@ -14,7 +14,8 @@ const mix = require('laravel-mix');
 mix.setPublicPath('public')
     .setResourceRoot('../') // Turns assets paths in css relative to css file
     .sass('resources/scss/styles.scss', 'css/index.css')
-    .js('resources/js/app.js', 'js/app.js')
+    .js('resources/js/app.js', 'public/js/app.js')
+    .js('resources/js/bootstrap.js', 'public/js/bootstrap.js')
     .scripts(['resources/js/translateScreen.js'], 'public/js/translateScreen.js')
     .extract([
         'jquery',
