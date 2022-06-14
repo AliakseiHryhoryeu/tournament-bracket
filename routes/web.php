@@ -19,6 +19,8 @@ Route::get('/players/{id}', [PlayersController::class, 'getPlayer'])->name('play
 
 Route::post('/players/{id}', [PlayersController::class, 'editPlayer'])->name('editPlayer');
 
+Route::get('/players/delete/{id}', [PlayersController::class, 'deletePlayer'])->name('deletePlayer');
+
 /* TOURNAMENTS pages */
 
 Route::get('/tournaments', [TournamentController::class, 'getAllTournaments'])->name('tournaments');
@@ -28,3 +30,5 @@ Route::post('/tournaments/addTournament', [TournamentController::class, 'addTour
 Route::get('/tournaments/{id}', [TournamentController::class, 'getTournament'])->name('tournamentInfo');
 
 Route::post('/tournaments/{id}', [TournamentController::class, 'editTournament'])->name('editTournament');
+
+Route::get('/tournaments/delete/{id}', [TournamentController::class, 'deleteTournament'])->name('deleteTournament');

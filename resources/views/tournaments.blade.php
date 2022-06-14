@@ -13,7 +13,9 @@
             <div class="tournaments__name">{{$item->title}}</div>
             <div class="tournaments__city"> {{$item->start_date}}</div>
         </div>
-        <div class="tournaments__delete">
+        <div class="tournaments__delete cup"
+             onclick="location.href='{{ route('deleteTournament',($item->id)) }}'"
+        >
             <img alt="#" src="{{asset('./img/cross-01.svg')}}" height="20" width="20"/>
         </div>
     </div>

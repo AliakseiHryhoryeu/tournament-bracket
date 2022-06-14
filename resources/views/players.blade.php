@@ -13,7 +13,9 @@
                     <div class="player__name">{{$item->name}}</div>
                     <div class="player__city">{{$item->city}}</div>
                 </div>
-                <div class="players-page__delete">
+                <div class="players-page__delete"
+                     onclick="location.href='{{ route('deletePlayer',($item->id)) }}'"
+                >
                     <img alt="#" src="{{asset('./img/cross-01.svg')}}" height="20" width="20"/>
                 </div>
             </div>

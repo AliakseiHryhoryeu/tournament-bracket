@@ -33,7 +33,10 @@
                     <span>{{$item->name}}</span>
                     <span>{{$item->city}}</span>
                 </div>
-                <div class="players__player-delete">
+                <div class="players__player-delete"
+                     onclick="location.href='{{ route('deletePlayer',($item->id)) }}'"
+                >
+
                     <img alt="#" src="{{asset('img/cross-01.svg')}}" height="20" width="20"/>
                 </div>
 

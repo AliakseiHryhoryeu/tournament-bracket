@@ -43,4 +43,11 @@ class PlayersController extends Controller
 
         return redirect()->route('home')->with('success', 'Player has been edit');
     }
+
+    public function deletePlayer($id)
+    {
+        $player = Player::find($id);
+        $player->delete();
+        return redirect()->route('home')->with('success', 'Player has been deleted');
+    }
 }

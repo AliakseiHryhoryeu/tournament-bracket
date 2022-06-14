@@ -34,11 +34,18 @@ class TournamentController extends Controller
     }
     public function editTournament($id,TournamentRequest $req)
     {
-        $tournament = Player::find($id);
+        $tournament = Tournament::find($id);
         $tournament->name = $req->input('tournamentTitle');
         $tournament->save();
 
         return redirect()->route('home')->with('success', 'Tournament has been edit');
+    }
+
+    public function deleteTournament($id)
+    {
+        $player = Tournament::find($id);
+        $player->delete();
+        return redirect()->route('tournaments')->with('success', 'Tournament has been deleted');
     }
 }
 
