@@ -5,23 +5,23 @@
         <div class="forms">
             <form action="{{route('addPlayer')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="forms__title">Участники:</div>
-                <input type="text" name="playerName" placeholder="Имя участника"/>
-                <input type="text" name="playerCity" placeholder="Город участника"/>
-                <button type="submit">Добавить</button>
+                <div class="forms__title">Players:</div>
+                <input type="text" name="playerName" placeholder="Name"/>
+                <input type="text" name="playerCity" placeholder="City"/>
+                <button type="submit">Add</button>
             </form>
 
             <form action="{{route('addTournament')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="forms__title">Турнир:</div>
-                <input type="text" name="tournamentTitle" placeholder="Турнир 1"/>
-                <input type="date" name="tournamentDate" placeholder="2022.01.20"/>
-                <button type="submit">Начать турнир</button>
+                <div class="forms__title">Tournament:</div>
+                <input type="text" name="tournamentTitle" placeholder="Title"/>
+                <input type="date" name="tournamentDate" placeholder="Date"/>
+                <button type="submit">Start Tournament</button>
             </form>
         </div>
 
         <div class="players">
-            <div class="players__title">Список участников:</div>
+            <div class="players__title">Players list:</div>
 
             @foreach($data as $item)
 

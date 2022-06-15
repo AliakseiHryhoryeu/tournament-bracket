@@ -11,33 +11,26 @@
         <div class="goBack__title"
              onclick="location.href='{{ route('tournaments') }}'"
         >
-            Назад
+            Back
         </div>
     </div>
     <div class="tournament">
-        <div class="tournament__title">{{$tournament->title}}</div>
-        <div class="tournament__title">Расписание турнира</div>
-        <div class="tournament__list">
-            <div class="tournament__date">01.01.2022</div>
-            <div class="tournament__group">
-                <div class="tournament__players">Player1 - Player2</div>
-                <div class="tournament__players">Player3 - Player4</div>
+        <div class="tournament__title">Tournament Schedule</div>
+        <div class="tournament__title">{{$tournament->title}} - {{$tournament->start_date}}</div>
+
+        @foreach($groups as $group)
+            <div class="tournament__list">
+                <div class="tournament__date">{{$group['date']}}</div>
+                <div class="tournament__group">
+                    @foreach($group['pairs'] as $pair)
+                        <div class="tournament__players">{{$pair['player1']->name}} - {{$pair['player2']->name}}</div>
+                    @endforeach
+                </div>
             </div>
-        </div>
-        <div class="tournament__list">
-            <div class="tournament__date">02.01.2022</div>
-            <div class="tournament__group">
-                <div class="tournament__players">Player1 - Player3</div>
-                <div class="tournament__players">Player2 - Player4</div>
-            </div>
-        </div>
-        <div class="tournament__list">
-            <div class="tournament__date">03.01.2022</div>
-            <div class="tournament__group">
-                <div class="tournament__players">Player1 - Player4</div>
-                <div class="tournament__players">Player2 - Player3</div>
-            </div>
-        </div>
+
+        @endforeach
+
+
     </div>
 
 @endsection

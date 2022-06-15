@@ -9,13 +9,12 @@ use App\Models\Player_tournament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\Types\Integer;
 
 class TournamentController extends Controller
 {
     public function addTournament(TournamentRequest $req)
     {
-        /*set default AUTO_INCREMENT because i this project use heroku - clearDB*/
+        // set default AUTO_INCREMENT in sql because i use heroku in this project  - clearDB //
         DB::statement('SET @@auto_increment_increment=1;');
 
         $tournament = new Tournament();
@@ -23,7 +22,7 @@ class TournamentController extends Controller
         $tournament->start_date = $req->input('tournamentDate');
         $tournament->save();
 
-        // Create tournament dependencies
+        // Create tournament dependencies (many to many)
         $players = new Player();
         $players = $players->all();
         foreach ($players as $player) {
@@ -44,16 +43,50 @@ class TournamentController extends Controller
     public function getTournament($id)
     {
         $tournament = new Tournament();
-        $playerTournament = new Player_tournament();
+        $tournament = $tournament->find($id);
 
+        $playerTournament = new Player_tournament();
         $playerTournament = $playerTournament->where('tournament_id', '=', $id)->get();
-        $player = new Player();
+
+        // Search for all players who play in the tournament //
         $players = [];
+        $player = new Player();
         foreach ($playerTournament as $plTour) {
             $players[] = $player->find($plTour->player_id);
         }
-//        dd(['tournament' => $tournament->find($id), 'players'=>$players]);
-        return view('tournament', ['tournament' => $tournament->find($id), 'players'=>$players]);
+
+        // checking for an odd number of players and adding a "player" //
+        // that will determine if the pair(other player) skips the round //
+        $sortedArray = $players;
+        if (count($players) % 2) {
+            $sortedArray[] = 'empty';
+        }
+
+        $groups = [];
+        for ($i = 0; $i < count($sortedArray) - 1; $i++) {
+            // add pair date
+            $start_date = $tournament->start_date;
+            $pair_date = date("d.m.Y", strtotime("+$i days", strtotime($start_date)));
+
+            $pairs = [];
+
+            // Determining the pairs that will play on the current day //
+            for ($j = 0; $j < floor(count($sortedArray) / 2); $j = $j + 1) {
+                $pair = ['player1' => $sortedArray[$j], 'player2' => $sortedArray[(count($sortedArray) - 1 - $j)]];
+                if ($pair['player1'] == 'empty' or $pair['player2'] == 'empty') {
+                    continue;
+                }
+                $pairs[] = $pair;
+            }
+
+            // Shift elements of an array after its 1st element //
+            $lastItem = array_pop($sortedArray);
+            array_splice($sortedArray, 1, 0, [$lastItem]);
+
+            $group = ['date' => $pair_date, 'pairs' => $pairs];
+            $groups[] = $group;
+        }
+        return view('tournament', ['tournament' => $tournament, 'groups' => $groups]);
     }
 
     public function editTournament($id, TournamentRequest $req)
@@ -72,14 +105,3 @@ class TournamentController extends Controller
         return redirect()->route('tournaments')->with('success', 'Tournament has been deleted');
     }
 }
-
-/*public function addTournamentBracket (){
-    $playersLenght = 7;
-    // createTournament(title, start_date)
-    for($i=0;$i<$playersLenght;$i++){
-        for($j=0;$j<$playersLenght;$j++){
-            // addDb(player[i+1],player[j+1],id tour)
-
-        }
-    }
-}*/

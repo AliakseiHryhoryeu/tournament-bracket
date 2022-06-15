@@ -11,18 +11,18 @@
         <div class="goBack__title"
              onclick="location.href='{{ route('players') }}'"
         >
-            Назад
+            Back
         </div>
     </div>
     <div class="forms">
         <form action="{{route('editPlayer',($data->id))}}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="forms__title">Редактирование игрока:</div>
-            <label for="playerName">Player name</label>
-            <input type="text" name="playerName" value="{{$data->name}}" placeholder="player name"/>
-            <label for="playerCity">Player city</label>
-            <input type="text" name="playerCity" value="{{$data->city}}" placeholder="player city"/>
-            <button type="submit">Редактировать</button>
+            <div class="forms__title">Edit player:</div>
+            <label for="playerName">New name</label>
+            <input type="text" name="playerName" value="{{$data->name}}" placeholder="Name"/>
+            <label for="playerCity">New city</label>
+            <input type="text" name="playerCity" value="{{$data->city}}" placeholder="City"/>
+            <button type="submit">Edit</button>
         </form>
     </div>
 @endsection
