@@ -52,7 +52,7 @@ class TournamentController extends Controller
         foreach ($playerTournament as $plTour) {
             $players[] = $player->find($plTour->player_id);
         }
-        dd(['tournament' => $tournament->find($id), 'players'=>$players]);
+//        dd(['tournament' => $tournament->find($id), 'players'=>$players]);
         return view('tournament', ['tournament' => $tournament->find($id), 'players'=>$players]);
     }
 

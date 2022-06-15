@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="tournament">
-        <div class="tournament__title">{{$data->title}}</div>
+        <div class="tournament__title">{{$tournament->title}}</div>
         <div class="tournament__title">Расписание турнира</div>
         <div class="tournament__list">
             <div class="tournament__date">01.01.2022</div>
