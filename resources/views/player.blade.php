@@ -3,7 +3,7 @@
 @section('content')
     <div class="goBack" id="goBack">
         <img
-            src="{{asset('img/left-arrow.svg')}}"
+            src="{{secure_asset('img/left-arrow.svg')}}"
             alt="back-img"
             height="20"
             width="20"

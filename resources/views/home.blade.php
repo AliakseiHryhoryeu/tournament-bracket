@@ -37,7 +37,7 @@
                      onclick="location.href='{{ route('deletePlayer',($item->id)) }}'"
                 >
 
-                    <img alt="#" src="{{asset('img/cross-01.svg')}}" height="20" width="20"/>
+                    <img alt="#" src="{{secure_asset('img/cross-01.svg')}}" height="20" width="20"/>
                 </div>
 
             </div>

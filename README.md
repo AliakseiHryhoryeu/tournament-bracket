@@ -9,9 +9,11 @@
 - MySQL
 - SCSS
 
-## Client
+## Site
 
-tomorrow i deploy it
+https://tournament-bracket.herokuapp.com/
+
+### [SQL Requests](./sql_requests)
 
 ![Tournament-bracket-preview](./preview-2.jpg)
 

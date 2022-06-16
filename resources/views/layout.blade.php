@@ -4,10 +4,10 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="{{secure_asset('css/index.css')}}"/>
     <link
         rel="shortcut icon"
-        href="{{asset('img/favicon-black.png')}}"
+        href="{{secure_asset('img/favicon-black.png')}}"
         type="image/x-icon"
     />
     <title>Tournament</title>
@@ -21,7 +21,7 @@
                 <a href="{{route('home')}}" class="header__logo-link">
                     <img
                         alt="#"
-                        src="{{asset('./img/favicon-white.png')}}"
+                        src="{{secure_asset('img/favicon-white.png')}}"
                         height="20"
                         width="20"
                     />
