@@ -15,7 +15,7 @@ https://tournament-bracket.herokuapp.com/
 
 ### [SQL Requests](./sql_requests)
 
-### [Interview questions](./interview-questions.docx)
+### [Interview questions](./interview-questions.pdf)
 
 ![Tournament-bracket-preview](./preview-2.jpg)
 
